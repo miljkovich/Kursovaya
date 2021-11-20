@@ -4,7 +4,7 @@
 int main()
 {
     setlocale(LC_ALL, "RU");
-    int** board = read_file("C:\\Users\\Korisnik\\Desktop\\chess position.txt");
+    int** board = read_file(FILE_ADDRESS);
     STRUCT_HEAD = STRUCT_get_head(board);
 
 

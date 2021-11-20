@@ -38,6 +38,7 @@ struct variation
 };
 
 int MOVES;
+string FILE_ADDRESS = "chess position.txt";
 extern variation* STRUCT_HEAD = nullptr;
 
 /*PRINT FUNCTIONS*/
