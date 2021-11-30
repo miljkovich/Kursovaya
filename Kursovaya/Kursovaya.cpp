@@ -8,7 +8,6 @@ int main()
     STRUCT_HEAD = STRUCT_get_head(board);
 
 
-    //cout << is_checked(board, false);
     MOVES = 2;
     white_moves(board);
 }
