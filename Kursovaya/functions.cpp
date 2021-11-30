@@ -213,7 +213,7 @@ bool king_is_not_near(int** board, int row, int col, bool king_is_white)
 
 	int row_diff, col_diff;
 	row_diff = abs(en_row - row);
-	col_diff = (en_col - col);
+	col_diff = abs(en_col - col);
 
 	if ((row_diff <=1 ) && ( col_diff <=1))
 		return false;
