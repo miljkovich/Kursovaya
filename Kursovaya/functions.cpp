@@ -247,7 +247,7 @@ bool king_can_move(int** board, int king_row, int king_col, int row_dir, int col
 
 	if (field_is_valid(_row, _col)) {
 		if ((board[_row][_col] == EMPTY_FIELD || is_enemy(board[_row][_col]))) {
-			if (king_is_not_near(board, _row, _col, king_is_white))
+			if (!is_checked(board, false) && king_is_not_near(board, _row, _col, king_is_white))
 				return true;
 		}
 	}
@@ -546,7 +546,7 @@ void pawn_moves(int** board, int row, int col, bool pawn_is_white = true)
 	}
 	else
 	{
-		PAWN = BLACK_PAWN;    FORWARD_ROW = 1;    FORWARD_ROW_x2 = row + 2;
+		PAWN = BLACK_PAWN;    FORWARD_ROW = row + 1;    FORWARD_ROW_x2 = row + 2;
 		LEFT_COL = col + 1;   RIGHT_COL = col-1;
 		PRE_PROMOTE_ROW = 6;  PROMOTE_ROW = 7;    START_ROW = 1;
 		is_enemy = &is_white;
@@ -751,7 +751,7 @@ void black_moves(int** board)
 {
 	if (is_mate(board))
 	{
-		cout << "GG WP! WE HAVE MATE!";
+		cout << "GG WP! WE HAVE MATE!" << endl;
 		STRUCT_show_variation();
 		return;
 	}
@@ -759,16 +759,15 @@ void black_moves(int** board)
 	{
 		if (MOVES <= 0)
 		{
+			///*
 			cout << "_________________________________" << endl;
 			cout << "ITS NOT MATE! POSSIBLE VARIATIONS:" << endl;
 			cout << "_________________________________" << endl;
 			STRUCT_show_variation();
+			//*/
 			return;
 		}
 	}
-	
-
-	
 	
 
 	for (int row = 0; row < 8; row++)
