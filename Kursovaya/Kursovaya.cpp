@@ -7,8 +7,6 @@ int main()
     int** board = read_file(FILE_ADDRESS);
     STRUCT_HEAD = STRUCT_get_head(board);
 
-
-    MOVES = 2;
+    MOVES = 1;
     white_moves(board);
 }
-
