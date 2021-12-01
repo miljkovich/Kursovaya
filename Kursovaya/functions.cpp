@@ -480,6 +480,9 @@ void cover_fields(int** board, int row, int col, int row_dir, int col_dir, bool 
 			is_enemy_piece(board[_row][_col])))
 	{
 		next_move(board, row, col, _row, _col, PIECE, piece_is_white);
+		if (is_enemy_piece(board[_row][_col])) {
+			break;
+		}
 		_row += row_dir; _col += col_dir;
 	}
 }
