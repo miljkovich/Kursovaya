@@ -554,7 +554,7 @@ void pawn_moves(int** board, int row, int col, bool pawn_is_white = true)
 
 	// moves_forward 2 fields
 	if (row == START_ROW && board[FORWARD_ROW][col] == EMPTY_FIELD && board[FORWARD_ROW_x2][col] == EMPTY_FIELD)
-		next_move(board, row, col, FORWARD_ROW_x2, col, WHITE_PAWN, false);
+		next_move(board, row, col, FORWARD_ROW_x2, col, PAWN, false);
 
 	// moves forward 1 field
 	if (board[FORWARD_ROW][col] == EMPTY_FIELD)
