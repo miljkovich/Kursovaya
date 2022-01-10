@@ -80,7 +80,7 @@ void delete_2d_array(int** arr,int rows=8)
 }
 int** read_file(string file_address)
 {
-	int** board = get_2d_array(BOARD_ROWS, BOARD_COLS);
+	int** board = get_2d_array();
 
 
 	//reading from file
@@ -88,20 +88,27 @@ int** read_file(string file_address)
 	f.open(file_address);
 	if (!f.is_open())
 	{
-		cout << "Не существует такой файл.";
+		cout << "Не существует такой файл." << endl;
+		system("exit");
 	}
-	else
+	
+	// reading board
+	for (int row = 0; row < 8; row++)
 	{
-		for (int row = 0; row < 8; row++)
+		int value;
+		for (int col = 0; col < 8; col++)
 		{
-			int value;
-			for (int col = 0; col < 8; col++)
-			{
-				f >> value;
-				board[row][col] = value;
-			}
+			f >> value;
+			board[row][col] = value;
 		}
 	}
+
+	if (!board_is_valid(board))
+	{
+		cout << "Позиция на доске указана неправильно. " << endl;
+		exit(0);
+	}
+
 	f.close();
 
 	return board;
