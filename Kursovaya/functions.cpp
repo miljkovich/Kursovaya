@@ -740,10 +740,6 @@ void king_moves(int** board, int row, int col, bool king_is_white = true)
 	short int piece;
 	piece = board[row][col];
 
-	if (king_is_white)
-		is_enemy_piece = &is_black;
-	else
-		is_enemy_piece = &is_white;
 
 	//RIGHT-DOWN
 	if (king_can_move(board, row, col, +1, +1, king_is_white))
