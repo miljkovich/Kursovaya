@@ -774,7 +774,7 @@ void king_moves(int** board, int row, int col, bool king_is_white = true)
 /* RECURSIVE NEXT MOVE CALLS */
 void white_moves(int** board)
 { 
-	if (MOVES <= 0 )
+	if (MOVES <= 0)
 		return;
 
 	for (int row = 0; row < 8; row++)
