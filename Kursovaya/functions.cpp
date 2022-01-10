@@ -814,24 +814,15 @@ void black_moves(int** board)
 {
 	if (is_mate(board))
 	{
-		cout << "GG WP! WE HAVE MATE!" << endl;
+		cout << "Следующая вариация ходов приводить к мату: " << endl;
+		cout << "__________________________________________" << endl;
+
 		STRUCT_show_variation();
 		return;
 	}
-	else
-	{
-		if (MOVES <= 0)
-		{
-			///*
-			cout << "_________________________________" << endl;
-			cout << "ITS NOT MATE! POSSIBLE VARIATIONS:" << endl;
-			cout << "_________________________________" << endl;
-			STRUCT_show_variation();
-			//*/
-			return;
-		}
-	}
-	
+
+	if (MOVES <= 0)
+		return;
 
 	for (int row = 0; row < 8; row++)
 	{
