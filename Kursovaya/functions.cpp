@@ -152,11 +152,24 @@ void STRUCT_delete_board()
 void STRUCT_show_variation()
 {
 	variation* temp = STRUCT_HEAD;
-	while (temp)
+	bool white_moves = true;
+	int moves = 1;
+	temp = STRUCT_HEAD;
+	while (temp->pNext)
 	{
+		if (white_moves)
+			cout << "White moves: (moves left = " << div(moves, 2).quot << ")" << endl;
+		else
+			cout << "Black moves: (moves left = " << div(moves,2).quot << ")" << endl;
+
+		moves++;
+		white_moves = !white_moves;
 		print_board(temp->board);
 		temp = temp->pNext;
 	}
+
+	cout << "Начальная позиция:" << endl;
+	print_board(temp->board);
 	
 }
 
