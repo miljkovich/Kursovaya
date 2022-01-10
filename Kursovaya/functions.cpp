@@ -1,6 +1,7 @@
 using namespace std;
 #include <fstream>
 #include <iostream>
+#include <string>
 
 #define BOARD_ROWS 8
 #define BOARD_COLS 8
@@ -21,15 +22,10 @@ using namespace std;
 #define BLACK_QUEEN -5
 #define BLACK_KING -6
 
-//FUNCTION IDENTIFIERS
-void white_moves(int** board);
-void black_moves(int** board);
-void next_move(int** old_board, int old_row, int old_col, int new_row, int new_col, int PIECE, bool piece_is_white);
-bool is_checked(int** board, bool white_is_checked);
-void STRUCT_show_variation();
-
-
 //GLOBAL VARIABLE
+int MOVES;
+string FILE_ADDRESS;
+
 struct variation
 	/*STRUCT CONTAINS INFORMATION ABOUT ALL THE MOVES*/
 {
