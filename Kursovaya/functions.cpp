@@ -33,9 +33,18 @@ struct variation
 	int** board = nullptr;
 };
 
-int MOVES;
-string FILE_ADDRESS = "chess position.txt";
 extern variation* STRUCT_HEAD = nullptr;
+
+//FUNCTION IDENTIFIERS
+void white_moves(int** board);
+void black_moves(int** board);
+void next_move(int** old_board, int old_row, int old_col, int new_row, int new_col, int PIECE, bool piece_is_white);
+bool is_checked(int** board, bool white_is_checked);
+void STRUCT_show_variation();
+bool board_is_valid(int** board);
+
+
+
 
 /*PRINT FUNCTIONS*/
 void print_board(int** board)
