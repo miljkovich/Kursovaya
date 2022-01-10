@@ -462,14 +462,16 @@ bool is_mate(int** board, bool black_mated = true)
 	}
 
 	short int col, row, king_col, king_row;
+	bool king_found = false;
 	//finding king coordinates
-	for (row = 0; row < 8; row++) {
+	for (row = 0; row < 8 && !king_found; row++) {
 		for (col = 0; col < 8; col++) {
 			short int piece = board[row][col];
 			if (piece == MATED_KING)
 			{
 				king_col = col;
 				king_row = row;
+				king_found = true;
 				break;
 			}
 		}
