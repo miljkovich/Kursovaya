@@ -784,10 +784,8 @@ void white_moves(int** board)
 			int piece = board[row][col];
 			if (piece == EMPTY_FIELD || is_black(piece))
 				continue;
-
 			switch (piece)
 			{
-
 			case WHITE_PAWN:
 				pawn_moves(board, row,col);
 				break;
