@@ -286,6 +286,7 @@ bool king_is_not_near(int** board, int row, int col, bool king_is_white)
 bool king_can_move(int** board, int king_row, int king_col, int row_dir, int col_dir, bool king_is_white)
 {
 	int** temp_board = get_2d_array();
+	copy_array(board, temp_board);
 	int KING;
 	bool(*is_enemy)(int enemy_piece);
 	if (king_is_white)
@@ -305,8 +306,10 @@ bool king_can_move(int** board, int king_row, int king_col, int row_dir, int col
 
 
 	if (field_is_valid(_row, _col)) {
-		if ((board[_row][_col] == EMPTY_FIELD || is_enemy(board[_row][_col]))) {
-			if (!is_checked(board, false) && king_is_not_near(board, _row, _col, king_is_white))
+		if ((temp_board[_row][_col] == EMPTY_FIELD || is_enemy(temp_board[_row][_col]))) {
+			temp_board[_row][_col] = KING;
+			temp_board[king_row][king_col] = EMPTY_FIELD;
+			if (!is_checked(temp_board, false) && king_is_not_near(temp_board, _row, _col, king_is_white))
 				return true;
 		}
 	}
