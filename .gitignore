@@ -362,5 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-.kursovaya/chess_position.txt
-.kursovaya/Kursovaya.cpp
+.Kursovaya/chess_position.txt
+.Kursovaya/Kursovaya.cpp
