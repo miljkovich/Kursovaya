@@ -191,6 +191,40 @@ bool field_is_valid(int row, int col)
 	return row >= 0 && row < 8 && col >= 0 && col < 8;
 }
 
+
+//Checks if board is valid
+bool board_is_valid(int** board)
+{
+	int white_king = 0, black_king = 0 , white_pawns = 0, black_pawns = 0;
+	for (int row = 0; row < 8; row++) {
+		for (int col = 0; col < 8; col++) {
+			int piece = board[row][col];
+			switch (piece)
+			{
+			case WHITE_KING:
+				white_king++;
+				break;
+
+			case BLACK_KING:
+				black_king++;
+				break;
+
+			case WHITE_PAWN:
+				white_pawns++;
+				break;
+
+			case BLACK_PAWN:
+				black_pawns++;
+				break;
+			}
+			if (black_king > 1 || white_king > 1 || black_pawns > 8 || white_pawns > 8) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
 /*
 	Function checks if there is enemy king in certain direction
 	direction is declared with row_dir, col_dir values that can be -1,0,+1
